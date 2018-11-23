@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath crypto_sphere crypto_sphere.wsgi --log-file -
