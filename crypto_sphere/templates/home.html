@@ -3,7 +3,19 @@
 {% block title %}CryptoSphere{% endblock %}
 
 {% block content %}
+<!--Look into making background green or red based on 24 hour change  -->
+<div class='pricetickers'>
+{% for key,value in price.items %}
+  <div class='tickers'>
+    <h5>{{key}} : </h5>
+    <h5> ${{value.USD}}</h5>
+    </div>
+{% endfor %}
+  </div>
 
+<div class='topNewsBanner'>
+  <h2 >Top News In Crypto and Blockchain</h2>
+  </div>
 <div class='container'>
   <div class='row'>
     {% for article in api.Data %}
