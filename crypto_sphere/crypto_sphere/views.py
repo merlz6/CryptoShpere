@@ -14,3 +14,15 @@ def home_page(request):
     api_request = requests.get("https://min-api.cryptocompare.com/data/v2/news/?lang=EN")
     api = json.loads(api_request.content)
     return render(request, 'home.html', {'api': api, 'price':price})
+
+
+
+def portfolio_page(request):
+    import requests
+    import json
+
+    #get prices and info
+
+    pricesNdInfo_request = requests.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,XRP,LTC,BCH,EOS,XLM,XMR,ADA,TRON&tsyms=USD")
+    prices = json.loads(pricesNdInfo_request.content)
+    return render(request, 'portfolio.html', {'prices':prices})
