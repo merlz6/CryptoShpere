@@ -5,15 +5,26 @@ def home_page(request):
     import requests
     import json
 
-    #crypto prices
+    #crypto prices for ticker at top
     price_request = requests.get("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC,XRP,TRON&tsyms=USD")
     price = json.loads(price_request.content)
 
 
+    pricesNdInfo_request = requests.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,XRP,LTC,BCH,EOS,XLM,XMR,ADA,TRX&tsyms=USD")
+    prices = json.loads(pricesNdInfo_request.content)
+
+    return render(request, 'home.html', {'price':price, 'prices':prices})
+
+
+
+def news_page(request):
+    import requests
+    import json
     # crypto news
     api_request = requests.get("https://min-api.cryptocompare.com/data/v2/news/?lang=EN")
     api = json.loads(api_request.content)
-    return render(request, 'home.html', {'api': api, 'price':price})
+    return render(request, 'news.html', {'api': api})
+
 
 
 
@@ -22,7 +33,7 @@ def portfolio_page(request):
     import json
 
     #get prices and info
-
-    pricesNdInfo_request = requests.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,XRP,LTC,BCH,EOS,XLM,XMR,ADA,TRON&tsyms=USD")
-    prices = json.loads(pricesNdInfo_request.content)
-    return render(request, 'portfolio.html', {'prices':prices})
+    #
+    # pricesNdInfo_request = requests.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,XRP,LTC,BCH,EOS,XLM,XMR,ADA,TRON&tsyms=USD")
+    # prices = json.loads(pricesNdInfo_request.content)
+    # return render(request, 'portfolio.html', {'prices':prices})
