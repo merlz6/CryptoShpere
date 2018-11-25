@@ -1,6 +1,47 @@
- header {
-   display: flex;
-   flex-direction: row;
-   background-color: lightGrey;
-   justify-content: space-between;
- }
+.pricetickers {
+  display: flex;
+  flex-direction: row;
+  border:1px solid grey;
+  justify-content: space-between;
+  margin:5px 15px;
+}
+
+.tickers {
+  display:flex;
+  flex-direction: row;
+  margin:2px 10px
+}
+
+.topNewsBanner {
+  margin: 10px auto;
+  text-align: center;
+}
+
+body {
+  background-color: lightGrey;
+}
+
+.topCryptoH3 {
+  margin-top: 25px;
+  text-align: center;
+}
+
+
+.table {
+  width:650px;
+  text-align: center;
+  margin:25px auto;
+  border: 1px solid white;
+}
+
+footer {
+  position: absolute;
+  bottom:0;
+  margin-left: auto;
+  margin-right:auto;
+  left:0;
+  right:0;
+  text-align: center;
+  background-color: #212529;
+  color:ghostWhite;
+}

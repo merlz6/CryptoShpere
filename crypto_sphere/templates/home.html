@@ -3,26 +3,48 @@
 {% block title %}CryptoSphere{% endblock %}
 
 {% block content %}
-
-<div class='container'>
-  <div class='row'>
-    {% for article in api.Data %}
-    <div class='col-sm'>
-
-
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="{{article.imageurl}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{article.title}}</h5>
-        <p class="card-text">{{article.body}}</p>
-        <a href="{{article.url}}" class="btn btn-primary">Read on..</a>
-      </div>
+<!--Look into making background green or red based on 24 hour change  -->
+<div class='pricetickers'>
+{% for key,value in price.items %}
+  <div class='tickers'>
+    <h5>{{key}} : </h5>
+    <h5> ${{value.USD}}</h5>
     </div>
-    <br/>
-</div>
 {% endfor %}
-    </div>
   </div>
+
+
+<h3 class='topCryptoH3'>Top Cryptocurrencies by Market Cap</h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Ticker</th>
+        <th scope="col">Price</th>
+        <th scope="col">Market Cap</th>
+        <th scope="col">Volume</th>
+        <th scope="col">24hr Change %</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for key,value in prices.DISPLAY.items %}
+      <tr>
+        <th scope="row">{{key}}</th>
+        <td>{{value.USD.PRICE}}</td>
+        <td>{{value.USD.MKTCAP}}</td>
+        <td>{{value.USD.VOLUME24HOURTO}}</td>
+        <td>{{value.USD.CHANGEPCT24HOUR}} %</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+<!-- {{prices.DISPLAY}} -->
+
+
+
+
 
 
 {% endblock %}
