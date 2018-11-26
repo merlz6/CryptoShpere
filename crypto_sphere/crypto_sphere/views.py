@@ -34,6 +34,6 @@ def portfolio_page(request):
 
     #get prices and info
     #
-    pricesPortfolio_request = requests.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,XRP,LTC,BCH,EOS,XLM,XMR,ADA,TRON&tsyms=USD")
+    pricesPortfolio_request = requests.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,XRP,LTC,BCH,EOS,XLM,XMR,ADA,TRON&tsyms=USD,BTC")
     pricesP = json.loads(pricesPortfolio_request.content)
     return render(request, 'portfolio.html', {'prices':pricesP})
