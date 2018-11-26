@@ -5,12 +5,26 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
+# DJANGO auth tutorial on UDEMY by John Elder : https://www.udemy.com/build-a-user-authentication-web-app-with-python-and-django/
 
 def login_user(request):
-    return render(request, 'login.html')
+    if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+
+                return redirect('/')
+            else:
+                messages.success(request, ('Error logging in - Please try again ..'))
+                return redirect('/login')
+    else:
+        return render(request, 'login.html')
 
 def home_page(request):
     import requests
@@ -27,7 +41,8 @@ def home_page(request):
     return render(request, 'home.html', {'price':price, 'prices':prices})
 
 
-
+# News page rendering and pulling API of NEWS and PRICES learned from UDEMY class by John Elder:
+# https://www.udemy.com/build-a-crypto-currency-news-site-with-python-and-django/learn/v4/overview
 def news_page(request):
     import requests
     import json

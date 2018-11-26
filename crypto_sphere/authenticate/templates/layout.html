@@ -40,6 +40,23 @@
       </div>
     </nav>
 
+<div class='container'>
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Incorrect password/username combination</strong> Please try again..
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{message}}
+  </div>
+  {% endfor %}
+  {% endif %}
+</div>
+
+
+
+
     <div class='site-container'>
       {% block content %}{% endblock %}
     </div>

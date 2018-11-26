@@ -5,10 +5,15 @@
 {% block content %}
 <div class="col-md-6 offset-md-3">
 <h3>Please Log-In</h3>
-<form>
+  <!-- post method learned from : https://www.udemy.com/build-a-user-authentication-web-app-with-python-and-django/learn/v4/t/lecture/10661282?start=0  -->
+<form method='POST'>
+
+    <!-- protects against hacking according to https://www.udemy.com/build-a-user-authentication-web-app-with-python-and-django/learn/v4/t/lecture/10661282?start=0  -->
+  {% csrf_token %}
+
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>
-    <input type="username" class="form-control" placeholder="Enter email" name='username'>
+    <input type="text" class="form-control" placeholder="Enter username" name='username'>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
