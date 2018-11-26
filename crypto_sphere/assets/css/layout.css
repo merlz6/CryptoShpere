@@ -45,3 +45,16 @@ footer {
   background-color: #212529;
   color:ghostWhite;
 }
+
+
+.usernamePortfolioDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15px 50px;
+}
+.balanceBox {
+  display: flex;
+  flex-direction: row;
+
+}

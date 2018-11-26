@@ -6,7 +6,7 @@ def home_page(request):
     import json
 
     #crypto prices for ticker at top
-    price_request = requests.get("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC,XRP,TRON&tsyms=USD")
+    price_request = requests.get("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC,XRP,TRX&tsyms=USD")
     price = json.loads(price_request.content)
 
 
@@ -34,6 +34,6 @@ def portfolio_page(request):
 
     #get prices and info
     #
-    pricesPortfolio_request = requests.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,XRP,LTC,BCH,EOS,XLM,XMR,ADA,TRON&tsyms=USD,BTC")
+    pricesPortfolio_request = requests.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,XRP,LTC,BCH,EOS,XLM,XMR,ADA,TRX&tsyms=USD,BTC")
     pricesP = json.loads(pricesPortfolio_request.content)
     return render(request, 'portfolio.html', {'prices':pricesP})
