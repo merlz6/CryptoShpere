@@ -5,8 +5,24 @@
 {% block content %}
 
 
-<h1>Create User</h1>
+<h2 class='text-center'>Create User</h3>
+<div class="col-md-6 offset-md-3">
+<form method="POST" >
+  {% csrf_token %}
 
+    {% if form.errors%}
+    <p>
+      Form contains Errors:
+      </p>
+      {% endif %}
+
+      {{ form.as_p }}
+
+
+    <input type="submit" value="Register" class="btn btn-secondary" />
+
+  </form>
+</div>
 
 
 
