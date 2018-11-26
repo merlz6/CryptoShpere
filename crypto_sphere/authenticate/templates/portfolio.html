@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}CryptoSphere{% endblock %}
+
+{% block content %}
+
+<div class='usernamePortfolioDiv'>
+  <h2>Username's Portfolio</h2>
+  <div class='balanceBox'>
+      <h3>Balance:</h3><h5>$ # </h5>
+    </div>
+
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Ticker</th>
+        <th scope="col">Price USD</th>
+        <th scope="col">Price BTC</th>
+        <th scope="col">Owned</th>
+        <th scope="col">VALUE</th>
+        <th scope="col">24hr Change %</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for key,value in prices.DISPLAY.items %}
+      <tr>
+        <th scope="row">{{key}}</th>
+        <td>{{value.USD.PRICE}}</td>
+        <td>{{value.BTC.PRICE}}</td>
+        <td>50</td>
+        <th scope="col">VALUE #</th>
+        <td>{{value.USD.CHANGEPCT24HOUR}} %</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+{% endblock %}
