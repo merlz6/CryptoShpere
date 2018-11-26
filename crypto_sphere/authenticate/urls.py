@@ -9,4 +9,6 @@ urlpatterns = [
         url(r'^news/', views.news_page),
         url(r'^portfolio/', views.portfolio_page),
         url(r'^login/', views.login_user),
+        url(r'^logout/', views.logout_user),
+        url(r'^register/', views.register_user),
 ]

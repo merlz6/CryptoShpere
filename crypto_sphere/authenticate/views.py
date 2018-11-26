@@ -26,6 +26,16 @@ def login_user(request):
     else:
         return render(request, 'login.html')
 
+
+def logout_user(request):
+    logout(request)
+    messages.success(request, ("You have sucessfully logged out"))
+    return redirect('/')
+
+def register_user(request):
+    return render(request, 'register.html')
+
+
 def home_page(request):
     import requests
     import json
